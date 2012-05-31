@@ -37,6 +37,14 @@ class Group
   end
 end
 
+class Symptom
+  attr_accessor :_id, :weight
+  
+  def initialize(*args)
+    @weight ||= 1
+  end
+end
+
 class Question
   attr_accessor :_id, :image, :explanation, :required, :reply
   attr_accessor :answers, :alerts, :conditions

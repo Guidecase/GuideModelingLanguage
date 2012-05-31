@@ -23,7 +23,15 @@ class DiagnosisMethodsTest < Test::Unit::TestCase
   def test_symptom
     @guide.receiver = @guide.new_diagnosis :_id => @key
     @guide.symptom @key
-    assert_equal @key, @guide.receiver.symptoms.first
+    assert_equal @key, @guide.receiver.symptoms.first._id
+    assert_equal 1, @guide.receiver.symptoms.first.weight
+  end
+  
+  def test_weighted_symptom  
+    @guide.receiver = @guide.new_diagnosis :_id => @key
+    @guide.symptom @key, 0.25
+    assert_equal @key, @guide.receiver.symptoms.last._id
+    assert_equal 0.25, @guide.receiver.symptoms.last.weight
   end
   
   def test_disease

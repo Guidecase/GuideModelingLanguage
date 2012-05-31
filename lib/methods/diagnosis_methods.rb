@@ -13,8 +13,11 @@ module Guidecase
         self.receiver = self
       end
       
-      def symptom(key)
-        self.receiver.symptoms << key
+      def symptom(key, weight=1)
+        s = ::Symptom.new
+        s._id = key
+        s.weight = weight
+        self.receiver.symptoms << s
       end
       
       def disease(key)
