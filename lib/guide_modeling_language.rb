@@ -1,3 +1,5 @@
+require 'railtie' if defined? ::Rails::Railtie
+
 require 'mongo_mapper'
 
 require 'methods/guide_methods'
