@@ -12,7 +12,9 @@ Gem::Specification.new do |s|
 
   s.files        = `git ls-files`.split("\n")
   s.executables  = `git ls-files`.split("\n").select{|f| f =~ /^bin/}
+  s.test_files   = `git ls-files`.split("\n").select{|f| f =~ /_test\.rb$/}
   
   s.add_dependency "railties", "~> 3.0"
   s.add_dependency "mongo_mapper"  
+  
 end
