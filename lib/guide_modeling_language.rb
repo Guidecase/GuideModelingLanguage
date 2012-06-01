@@ -6,6 +6,7 @@ require 'models/alert'
 require 'models/answer'
 require 'models/complaint'
 require 'models/condition'
+require 'models/diagnosis'
 require 'models/symptom'
 
 require 'methods/guide_methods'

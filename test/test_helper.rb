@@ -51,14 +51,14 @@ class Question
   end
 end
 
-class Diagnosis
-  attr_accessor :_id, :symptoms, :disease, :description, :low_risk
-  
-  def initialize(params={})
-    self._id = params[:_id]
-    @symptoms = []
-  end
-end
+# class Diagnosis
+#   attr_accessor :_id, :symptoms, :disease, :description, :low_risk
+#   
+#   def initialize(params={})
+#     self._id = params[:_id]
+#     @symptoms = []
+#   end
+# end
 
 class Outcome
   attr_accessor :_id, :urgency, :recommendation, :sick_days
