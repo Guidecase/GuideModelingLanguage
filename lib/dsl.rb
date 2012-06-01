@@ -22,16 +22,16 @@ module Guidecase
     
     def define(key, &block)
       self.receiver = self
-      self.slug = key # todo: fix dep
+      self.slug = key
       yield self if block_given?
     end
     
-    def parsing_group?; receiver.is_a? ::Group; end # todo: fix dep
-    def parsing_question?; receiver.is_a? ::Question; end # todo: fix dep
-    def parsing_answer?; receiver.is_a? ::Answer; end # todo: fix dep
-    def parsing_outcome?; receiver.is_a? ::Outcome; end # todo: fix dep
-    def parsing_diagnosis?; receiver.is_a? ::Diagnosis; end # todo: fix dep
-    def parsing_complaint?; receiver.is_a? ::Complaint; end # todo: fix dep    
+    def parsing_group?; receiver.is_a? ::Group; end
+    def parsing_question?; receiver.is_a? ::Question; end
+    def parsing_answer?; receiver.is_a? ::Answer; end
+    def parsing_outcome?; receiver.is_a? ::Outcome; end
+    def parsing_diagnosis?; receiver.is_a? ::Diagnosis; end
+    def parsing_complaint?; receiver.is_a? ::Complaint; end
     
     def version_number(version)
       self.version = version
