@@ -75,14 +75,6 @@ class Complaint
   end
 end
 
-class Alert
-  attr_accessor :_id, :description
-    
-  def initialize(params={})
-    self._id = params[:_id]
-  end
-end
-
 class Diagnosis
   attr_accessor :_id, :symptoms, :disease, :description, :low_risk
   

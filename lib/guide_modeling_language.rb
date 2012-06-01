@@ -2,6 +2,8 @@ require 'railtie' if defined? ::Rails::Railtie
 
 require 'mongo_mapper'
 
+require 'models/alert'
+
 require 'methods/guide_methods'
 require 'methods/agreement_methods'
 require 'methods/outcome_methods'
