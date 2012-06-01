@@ -37,14 +37,6 @@ class Group
   end
 end
 
-class Symptom
-  attr_accessor :_id, :weight
-  
-  def initialize(*args)
-    @weight ||= 1
-  end
-end
-
 class Question
   attr_accessor :_id, :image, :explanation, :required, :reply
   attr_accessor :answers, :alerts, :conditions
@@ -56,22 +48,6 @@ class Question
     @alerts = []
     @answers = []    
     @conditions = []        
-  end
-end
-
-class Answer
-  attr_accessor :_id, :explanation
-  
-  def initialize(params={})
-    self._id = params[:_id]
-  end  
-end
-
-class Complaint
-  attr_accessor :_id, :description
-  
-  def initialize(params={})
-    self._id = params[:_id]
   end
 end
 
@@ -98,12 +74,4 @@ class Outcome
     @tips = []
     @indicators = []
   end
-end
-
-class Condition
-  attr_accessor :_id, :answers
-  
-  def initialize
-    @answers = []
-  end  
 end

@@ -14,7 +14,7 @@ module Guidecase
       end
       
       def symptom(key, weight=1)
-        s = ::Symptom.new
+        s = Symptom.new(:weight => weight)
         s._id = key
         s.weight = weight
         self.receiver.symptoms << s
