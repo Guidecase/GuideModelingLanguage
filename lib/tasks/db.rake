@@ -1,7 +1,7 @@
 namespace :db do
   desc "Seed the MongoDB guide collection from DSL files"
   task :seed => :environment do
-    guide_path = Guidecase::Guides.root
+    guide_path = defined? ::Guidecase::Guides.root ? Guidecase::Guides.root : ''
 
     head_guide = Guide.evaluate(File.read("#{guide_path}/head_pain.rb"))
     throat_guide = Guide.evaluate(File.read("#{guide_path}/sore_throat.rb"))
