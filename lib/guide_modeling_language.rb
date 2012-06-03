@@ -1,6 +1,7 @@
 require 'railtie' if defined? ::Rails::Railtie
 
 require 'mongo_mapper'
+require 'models/titled_text'
 require 'models/condition'
 require 'models/agreement'
 require 'models/alert'
