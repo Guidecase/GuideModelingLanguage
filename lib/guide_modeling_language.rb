@@ -1,4 +1,4 @@
-require 'railtie' if defined? ::Rails::Railtie
+require 'guide_modeling_language/railtie' if defined? ::Rails::Railtie
 
 require 'mongo_mapper'
 require 'models/titled_text'
