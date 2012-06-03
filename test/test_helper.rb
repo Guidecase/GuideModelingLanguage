@@ -1,2 +1,2 @@
 require 'test/unit'
-require '../lib/guide_modeling_language.rb'
+require File.join(File.dirname(__FILE__), '..', 'lib', 'guide_modeling_language.rb')
