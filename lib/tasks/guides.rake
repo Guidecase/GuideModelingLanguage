@@ -1,0 +1,2 @@
+namespace :guides do
+end
