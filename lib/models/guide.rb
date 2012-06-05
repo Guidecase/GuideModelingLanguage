@@ -12,4 +12,14 @@ class Guide
   many :outcomes
   many :diagnoses
   many :complaints
+
+  def format_id
+    self._id = _id.to_s.gsub(' ', '_').downcase if _id
+  end
+
+  def questions
+    q = []
+    groups.each {|g| q += g.questions }
+    q
+  end  
 end
