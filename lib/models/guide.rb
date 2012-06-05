@@ -18,8 +18,21 @@ class Guide
   end
 
   def questions
-    q = []
-    groups.each {|g| q += g.questions }
-    q
+    return @questions unless @questions.nil?
+     
+    @questions = []
+    groups.each {|g| @questions += g.questions }
+    @questions
   end  
+  
+  def answers
+    return @answers unless @answers.nil?
+     
+    @answers = []
+    questions.each do |q|
+      @answers += q.answers
+    end
+    @answers
+  end  
+  
 end
