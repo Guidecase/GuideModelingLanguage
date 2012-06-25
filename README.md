@@ -1,12 +1,12 @@
-# Zorgblik Guide Modeling Language
+# Earlydoc Guide Modeling Language
 
-Zorgblik formalizes health industry guidelines by using a "domain specific language" to translate natural language medical advice into structured data. This document describes how to author guides using this modeling language.
+Earlydoc formalizes health industry guidelines by using a "domain specific language" to translate natural language medical advice into structured data. This document describes how to author guides using this modeling language.
 
 ### Overview
 
 The main principle of the modeling language is to keep the formalized guidelines as similar as possible to the original source literature in order to facilitate professional review and minimize interpretation errors. Because logical complexity is unavoidable, the idea is not to make complex things simple, but rather to make them *clear*; an important distinction.
 
-Guides can be written in any text editor, and then read by Zorgblik's various health modules for analysis or patient triage.
+Guides can be written in any text editor, and then read by Earlydoc's various health modules for analysis or patient triage.
 
 The modeling language is "declarative", and authoring a guide entails writing a number of statements, one per line, each of which defines a piece of data for the guide, for example a question, diagnosis, or outcome. Authors, then, simply write a series of facts, mostly describing relationships between data. The style is designed to be read linearly, in the same manner as clinical staff would read the original guides.
 
@@ -505,10 +505,10 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 ### References
 
 Sore Throat Guide:
-https://github.com/Guidecase/Zorgblik/blob/master/lib/guides/sore_throat.rb
+https://github.com/Guidecase/Earlydoc/blob/master/lib/guides/sore_throat.rb
 
 Guide Template:
-https://github.com/Guidecase/Zorgblik/blob/master/lib/generators/guide_generator.rb
+https://github.com/Guidecase/Earlydoc/blob/master/lib/generators/guide_generator.rb
 
 Document Nesting Diagram:
 https://github.com/Guidecase/BizDev/raw/master/System/DSL%20Document%20Nesting%20Diagram.png

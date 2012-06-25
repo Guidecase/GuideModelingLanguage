@@ -1,6 +1,7 @@
 require 'guide_modeling_language/railtie' if defined? ::Rails::Railtie
 
 require 'mongo_mapper'
+require 'models/anatomy'
 require 'models/titled_text'
 require 'models/condition'
 require 'models/agreement'
@@ -20,6 +21,7 @@ require 'methods/diagnosis_methods'
 require 'methods/question_methods'
 require 'methods/answer_methods'
 require 'methods/complaint_methods'
+require 'methods/anatomy_methods'
 
 require 'dsl'
 require 'models/guide'

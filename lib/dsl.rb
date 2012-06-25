@@ -9,6 +9,7 @@ module Guidecase
     include Guidecase::DSL::QuestionMethods    
     include Guidecase::DSL::AnswerMethods
     include Guidecase::DSL::ComplaintMethods
+    include Guidecase::DSL::AnatomyMethods
         
     def self.included(base)
       base.instance_eval do
