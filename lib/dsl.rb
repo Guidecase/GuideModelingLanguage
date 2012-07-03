@@ -15,7 +15,7 @@ module Guidecase
       base.instance_eval do
         def self.evaluate(text)
           dsl = new
-          dsl.instance_eval(text)
+          dsl.instance_eval(text, __FILE__, __LINE__)
           dsl
         end
       end
