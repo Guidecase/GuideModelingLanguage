@@ -22,7 +22,7 @@ class Guide
     return @questions unless @questions.nil?
      
     @questions = []
-    groups.each {|g| @questions += g.questions if group.nil? || group == g._id }
+    groups.each {|g| @questions += g.questions if group.nil? || group == g._id.to_s }
     @questions
   end  
   
