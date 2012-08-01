@@ -18,11 +18,11 @@ class Guide
     self._id = _id.to_s.gsub(' ', '_').downcase if _id
   end
 
-  def questions
+  def questions(group=nil)
     return @questions unless @questions.nil?
      
     @questions = []
-    groups.each {|g| @questions += g.questions }
+    groups.each {|g| @questions += g.questions if group.nil? || group == g._id }
     @questions
   end  
   
