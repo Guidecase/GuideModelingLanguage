@@ -5,8 +5,8 @@ module Guidecase
         ::Diagnosis.new params
       end
 
-      def diagnose(key, &block)
-        diagnosis = new_diagnosis(:_id => key)
+      def diagnose(key, common_name=nil, &block)
+        diagnosis = new_diagnosis(:_id => key, :name => common_name || key)
         self.receiver.diagnoses << diagnosis
         self.receiver = diagnosis
         yield self if block_given?
