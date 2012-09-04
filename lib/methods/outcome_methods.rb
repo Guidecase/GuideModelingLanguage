@@ -29,10 +29,6 @@ module Guidecase
       def recommend(key)
         receiver.recommendation = key
       end
-            
-      def indicator(key)
-        receiver.indicators << key
-      end
 
       def header(key)
         receiver.headings << key

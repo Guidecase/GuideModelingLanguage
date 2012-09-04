@@ -3,7 +3,8 @@ module Guidecase
     attr_accessor :receiver
 
     include Guidecase::DSL::GuideMethods
-    include Guidecase::DSL::AgreementMethods    
+    include Guidecase::DSL::AgreementMethods   
+    include Guidecase::DSL::IndicatorMethods    
     include Guidecase::DSL::OutcomeMethods
     include Guidecase::DSL::DiagnosisMethods
     include Guidecase::DSL::QuestionMethods    
@@ -33,6 +34,7 @@ module Guidecase
     def parsing_outcome?; receiver.is_a? ::Outcome; end
     def parsing_diagnosis?; receiver.is_a? ::Diagnosis; end
     def parsing_complaint?; receiver.is_a? ::Complaint; end
+    def parsing_indicator?; receiver.is_a? ::Indicator; end
     
     def version_number(version)
       self.version = version

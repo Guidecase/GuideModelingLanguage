@@ -21,13 +21,6 @@ class OutcomeMethodsTest < Test::Unit::TestCase
     assert_equal @guide, @guide.receiver
   end
   
-  def test_indicator
-    outcome = Outcome.new
-    @guide.receiver = outcome
-    @guide.indicator @key
-    assert_equal [@key], outcome.indicators
-  end
-  
   def test_recommend
     outcome = Outcome.new
     @guide.receiver = outcome

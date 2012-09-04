@@ -7,9 +7,9 @@ class Outcome
   key :headings, Array
   key :paragraphs, Array
   key :tips, Array
-  key :indicators, Array
   key :recommendation, String
   key :sick_days, Integer, :default => 0
   
   many :conditions
+  many :indicators
 end
