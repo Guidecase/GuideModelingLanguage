@@ -138,6 +138,17 @@ The DSL comprises a number of commands used to describe medical guides. These gu
           description :my_guide_summary  
         end  
 
++ **body**
+
+  BLOCK: no
+  PARAMETERS: anatomy title key, anatomy explanation text key, anatomy image key
+  NOTES: The `body` command displays a box of anatomical information about the a part in the triage UI. The `anatomy image` references an `image asset name` for the body part used to visually represent it in the triage UI. In order to localize the images, a key is used to refer to the illustration instead of an image path.
+  EXAMPLE:
+
+        define :my_guide do  
+          body :how_does_your_body_work, :how_body_works_explanation, :anatomy_image_png  
+        end        
+
 ##### Complaints
 
 + **complain**
@@ -297,12 +308,14 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 
   BLOCK: no  
   PARAMETERS: indicator key  
-  NOTES: The `indicator key` text is displayed to the user in the triage UI in a bullet list, and indicates signs that the patient may still need to see a doctor. Multiple `indicator` statements can be provided.  
+  NOTES: The `indicator key` text is displayed to the user in the triage UI in a bullet list, and indicates signs that the patient may still need to see a doctor. Multiple `indicator` statements can be provided. Indicators can be displayed conditionally based on answers provided by the patient. These conditions are defined with a `given` statement inside an `indicator` block, just as the `given` statement is used for the outcome itself. 
   EXAMPLE:
 
         outcome :see_a_doctor_later do  
           indicator :if_some_symptom  
-          indicator :if_some_other_symptom  
+          indicator :if_some_other_symptom  do
+            given :an_answer
+          end
         end
 
 ##### Agreement
@@ -336,12 +349,15 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 
   BLOCK: yes  
   PARAMETERS: none  
-  NOTES: All questions must be contained within a `group`, which means that a guide should always have at least one group. The group itself has no display or informational purpose, and serves only to logically associate related questions.  
+  NOTES: All questions must be contained within a `group`, which means that a guide should always have at least one group. There are two possible group values: `symptoms` and `diagnostics`. The symptoms group should contain all the questions necessary to perform an accurate triage. The diagnostics group should contain all other inessential questions that can be used to provide further, more detailed diagnosis. The two groups question are displayed to the user in the triage UI in separate, distinct ways. If a diagnostics group is not provided, the triage UI will only show the symptom-related questions. 
   EXAMPLE:  
 
-        group :symptom_questions do  
+        group :symptoms do  
           ...  
         end  
+        group :diagnostics do  
+          ...  
+        end
 
 + **question**
 
@@ -493,7 +509,7 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 
   BLOCK: no  
   PARAMETERS: symptom key, weight (optional)  
-  NOTES: The `symptom key' should match an `answer key` defined for an answer elsewhere in the guide. If a patient answers with any of the given symptoms, the diagnosis may be displayed in the triage UI. The more symptoms a user has in their answers, the more likely the triage UI will consider this diagnosis above others. Multiple `symptom` statements can and usually will be provided if several possible symptoms would indicate the diagnosis. The symptom's `weight` determines the influence of a given symptom relative to other weighted symptoms, such that a symptom with a high weight implies a diagnosis more than a symptom with a lower weight.
+  NOTES: The `symptom key` should match an `answer key` defined for an answer elsewhere in the guide. If a patient answers with any of the given symptoms, the diagnosis may be displayed in the triage UI. The more symptoms a user has in their answers, the more likely the triage UI will consider this diagnosis above others. Multiple `symptom` statements can and usually will be provided if several possible symptoms would indicate the diagnosis. The symptom's `weight` determines the influence of a given symptom relative to other weighted symptoms, such that a symptom with a high weight implies a diagnosis more than a symptom with a lower weight.
   EXAMPLE:
 
         diagnose :some_illness do  
