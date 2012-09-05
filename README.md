@@ -308,7 +308,7 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 
   BLOCK: no  
   PARAMETERS: indicator key  
-  NOTES: The `indicator key` text is displayed to the user in the triage UI in a bullet list, and indicates signs that the patient may still need to see a doctor. Multiple `indicator` statements can be provided. Indicators can be displayed conditionally based on answers provided by the patient. These conditions are defined with a `given` statement inside an `indicator` block, just as the `given` statement is used for the outcome itself. 
+  NOTES: The `indicator key` text is displayed to the user in the triage UI in a bullet list, and indicates signs that the patient may still need to see a doctor. Multiple `indicator` statements can be provided. Indicators can be displayed conditionally based on answers provided by the patient. These conditions are defined with a `given` statement inside an `indicator` block, just as the `given` statement is used for the outcome itself: if an indicator has conditions, then it is shown in the triagre UI if and only if the patient's responses meet the conditions.
   EXAMPLE:
 
         outcome :see_a_doctor_later do  
