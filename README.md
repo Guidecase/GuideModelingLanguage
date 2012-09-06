@@ -475,8 +475,8 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 + **diagnose**
 
   BLOCK: yes  
-  PARAMETERS: diagnosis key, common name (optional), weight (optional. default = 0)  
-  NOTES: A diagnosis is a probable illness or injury associated with one or more possible symptoms (see below). Multiple diagnoses will usually be defined for most guides. The diagnosis name key text is displayed to the user in the triage UI. If no symptoms are given for a diagnosis, that diagnosis will be considered the default if a user has no other matching diagnoses symptoms. If a `common name` is supplied, this (presumably more friendly) name will be used in the UI instead of the key. 
+  PARAMETERS: diagnosis key, common name (optional)  
+  NOTES: A diagnosis is a probable illness or injury associated with one or more possible symptoms (see below). Multiple diagnoses will usually be defined for most guides. The `diagnosis key` text is displayed to the user in the triage UI. If a `common name` is supplied, this (presumably more friendly) name will be used in the UI instead of the key. 
   EXAMPLE:
 
         diagnose :some_illness do  
