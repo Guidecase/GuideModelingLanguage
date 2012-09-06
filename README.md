@@ -474,8 +474,8 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 + **diagnose**
 
   BLOCK: yes  
-  PARAMETERS: diagnosis key, common name (optional), weight (optional. default = 0)
-  NOTES: A diagnosis is a probable illness or injury associated with one or more possible symptoms (see below). Multiple diagnoses will usually be defined for most guides. The diagnosis name key text is displayed to the user in the triage UI. If no symptoms are given for a diagnosis, that diagnosis will be considered the default if a user has no other matching diagnoses symptoms. If a `common name` is supplied, this (presumably more friendly) name will be used in the UI instead of the key. A `weight` can also be assigned to the diagnosis, representing the base liklihood someone tiraged for this guide is to have this diagnosis. The `weight` determines the order of a given diagnosis relative to other diagnoses, such that a diagnosis with a high weight will appear before others in the triage UI. Note: this weight is added to the weights of any other symptoms given by a user's answers.
+  PARAMETERS: diagnosis key, common name (optional), weight (optional. default = 0)  
+  NOTES: A diagnosis is a probable illness or injury associated with one or more possible symptoms (see below). Multiple diagnoses will usually be defined for most guides. The diagnosis name key text is displayed to the user in the triage UI. If no symptoms are given for a diagnosis, that diagnosis will be considered the default if a user has no other matching diagnoses symptoms. If a `common name` is supplied, this (presumably more friendly) name will be used in the UI instead of the key. A `weight` can also be assigned to the diagnosis, representing the base liklihood someone tiraged for this guide is to have this diagnosis. The `weight` determines the order of a given diagnosis relative to other diagnoses, such that a diagnosis with a high weight will appear before others in the triage UI. Note: this weight is added to the weights of any other symptoms given by a user's answers.  
   EXAMPLE:
 
         diagnose :some_illness do  
@@ -504,7 +504,7 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 
   BLOCK: no  
   PARAMETERS: symptom key, weight (optional. default = 1)  
-  NOTES: The `symptom key` should match an `answer key` defined for an answer elsewhere in the guide. If a patient answers with any of the given symptoms, the diagnosis may be displayed in the triage UI. The more symptoms a user has in their answers, the more likely the triage UI will consider this diagnosis above others. Multiple `symptom` statements can and usually will be provided if several possible symptoms would indicate the diagnosis. The symptom's `weight` determines the influence of a given symptom relative to other weighted symptoms, such that a symptom with a high weight implies a diagnosis more than a symptom with a lower weight.
+  NOTES: The `symptom key` should match an `answer key` defined for an answer elsewhere in the guide. If a patient answers with any of the given symptoms, the diagnosis may be displayed in the triage UI. The more symptoms a user has in their answers, the more likely the triage UI will consider this diagnosis above others. Multiple `symptom` statements can and usually will be provided if several possible symptoms would indicate the diagnosis. The symptom's `weight` determines the influence of a given symptom relative to other weighted symptoms, such that a symptom with a high weight implies a diagnosis more than a symptom with a lower weight.  
   EXAMPLE:
 
         diagnose :some_illness do  
