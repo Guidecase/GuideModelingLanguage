@@ -87,7 +87,8 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 * **Diagnoses**  
   diagnose  
   description  
-  disease  
+  disease
+  risk
   symptom  
 
 ##### Guides
@@ -475,7 +476,7 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 
   BLOCK: yes  
   PARAMETERS: diagnosis key, common name (optional), weight (optional. default = 0)  
-  NOTES: A diagnosis is a probable illness or injury associated with one or more possible symptoms (see below). Multiple diagnoses will usually be defined for most guides. The diagnosis name key text is displayed to the user in the triage UI. If no symptoms are given for a diagnosis, that diagnosis will be considered the default if a user has no other matching diagnoses symptoms. If a `common name` is supplied, this (presumably more friendly) name will be used in the UI instead of the key. A `weight` can also be assigned to the diagnosis, representing the base liklihood someone tiraged for this guide is to have this diagnosis. The `weight` determines the order of a given diagnosis relative to other diagnoses, such that a diagnosis with a high weight will appear before others in the triage UI. Note: this weight is added to the weights of any other symptoms given by a user's answers.  
+  NOTES: A diagnosis is a probable illness or injury associated with one or more possible symptoms (see below). Multiple diagnoses will usually be defined for most guides. The diagnosis name key text is displayed to the user in the triage UI. If no symptoms are given for a diagnosis, that diagnosis will be considered the default if a user has no other matching diagnoses symptoms. If a `common name` is supplied, this (presumably more friendly) name will be used in the UI instead of the key. 
   EXAMPLE:
 
         diagnose :some_illness do  
@@ -483,11 +484,7 @@ The DSL comprises a number of commands used to describe medical guides. These gu
         end  
         diagnose :rare_illness, :friendly_name do  
           ...  
-        end          
-        diagnose :likely_illness, :some_name, 1.1 do  
-          ...  
-        end          
-
+        end  
 
 + **description**
 
@@ -499,6 +496,17 @@ The DSL comprises a number of commands used to describe medical guides. These gu
         diagnose :some_illness do  
           description :info_about_illness  
         end 
+
++ **risk**
+
+  BLOCK: no  
+  PARAMETERS:  weight
+  NOTES: The `risk` of a diagnosis represents the base liklihood that someone tiraged for this guide is to have that diagnosis. The `weight` determines the order of a given diagnosis relative to other diagnoses, such that a diagnosis with a high weight will appear before others in the triage UI. Note: this weight is added to the weights of any other symptoms given by a user's answers. By default a diagnosis will have a weight of 0, meaning that the diagnoses order would be determined entirely by symptoms.  
+  EXAMPLE:  
+
+        diagnose :some_illness do  
+          risk 1.2
+        end   
 
 + **symptom**
 
