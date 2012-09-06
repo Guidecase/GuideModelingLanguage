@@ -67,4 +67,10 @@ class DiagnosisMethodsTest < Test::Unit::TestCase
     @guide.description @key
     assert_equal @key, @guide.receiver.description
   end
+
+  def test_risk
+    @guide.receiver = @guide.new_diagnosis :_id => @key
+    @guide.risk 1.1
+    assert_equal 1.1, @guide.receiver.weight
+  end
 end

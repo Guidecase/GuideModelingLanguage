@@ -34,6 +34,10 @@ module Guidecase
       def diagnosis_description(text)
         self.receiver.description = text
       end      
+
+      def risk(weight)
+        self.receiver.weight = weight
+      end       
     end
   end
 end
