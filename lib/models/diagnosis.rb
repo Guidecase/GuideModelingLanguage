@@ -4,7 +4,7 @@ class Diagnosis
   key :name, String
   key :description, String
   key :disease, String
-  key :low_risk, Boolean, :default => false
+  key :weight, Float, :default => 0
   
   many :symptoms
 end

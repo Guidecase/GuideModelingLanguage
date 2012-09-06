@@ -19,6 +19,28 @@ class DiagnosisMethodsTest < Test::Unit::TestCase
     end
     assert_equal @guide, @guide.receiver
   end
+
+  def test_diagnose_with_name
+    @guide.receiver = @guide
+    @guide.diagnose @key, 'test' do
+      assert_equal 'test', @guide.diagnoses.first.name
+    end
+  end
+
+  def test_diagnose_with_weight
+    @guide.receiver = @guide
+    @guide.diagnose @key, 7.7 do
+      assert_equal 7.7, @guide.diagnoses.first.weight
+    end
+  end 
+
+  def test_diagnose_with_name_and_weight
+    @guide.receiver = @guide
+    @guide.diagnose @key, 'test', 7.7 do
+      assert_equal 'test', @guide.diagnoses.first.name
+      assert_equal 7.7, @guide.diagnoses.first.weight
+    end
+  end 
   
   def test_symptom
     @guide.receiver = @guide.new_diagnosis :_id => @key
@@ -44,11 +66,5 @@ class DiagnosisMethodsTest < Test::Unit::TestCase
     @guide.receiver = @guide.new_diagnosis :_id => @key
     @guide.description @key
     assert_equal @key, @guide.receiver.description
-  end
-  
-  def test_low_risk
-    @guide.receiver = @guide.new_diagnosis :_id => @key
-    @guide.low_risk
-    assert @guide.receiver.low_risk
   end
 end
