@@ -12,13 +12,6 @@ module Guidecase
         yield self if block_given?
         self.receiver = self
       end
-
-        diagnosis = new_diagnosis(:_id => key, :name => common_name, :weight => weight)
-        self.receiver.diagnoses << diagnosis
-        self.receiver = diagnosis
-        yield self if block_given?
-        self.receiver = self
-      end
       
       def symptom(key, weight=1)
         s = Symptom.new(:weight => weight)
