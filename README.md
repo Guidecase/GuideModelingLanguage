@@ -87,8 +87,8 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 * **Diagnoses**  
   diagnose  
   description  
-  disease
-  risk
+  disease  
+  risk  
   symptom  
 
 ##### Guides
