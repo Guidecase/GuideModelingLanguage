@@ -26,21 +26,6 @@ class DiagnosisMethodsTest < Test::Unit::TestCase
       assert_equal 'test', @guide.diagnoses.first.name
     end
   end
-
-  def test_diagnose_with_weight
-    @guide.receiver = @guide
-    @guide.diagnose @key, 7.7 do
-      assert_equal 7.7, @guide.diagnoses.first.weight
-    end
-  end 
-
-  def test_diagnose_with_name_and_weight
-    @guide.receiver = @guide
-    @guide.diagnose @key, 'test', 7.7 do
-      assert_equal 'test', @guide.diagnoses.first.name
-      assert_equal 7.7, @guide.diagnoses.first.weight
-    end
-  end 
   
   def test_symptom
     @guide.receiver = @guide.new_diagnosis :_id => @key
