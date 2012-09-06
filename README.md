@@ -500,7 +500,7 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 + **risk**
 
   BLOCK: no  
-  PARAMETERS:  weight
+  PARAMETERS:  weight  
   NOTES: The `risk` of a diagnosis represents the base liklihood that someone tiraged for this guide is to have that diagnosis. The `weight` determines the order of a given diagnosis relative to other diagnoses, such that a diagnosis with a high weight will appear before others in the triage UI. Note: this weight is added to the weights of any other symptoms given by a user's answers. By default a diagnosis will have a weight of 0, meaning that the diagnoses order would be determined entirely by symptoms.  
   EXAMPLE:  
 
