@@ -5,13 +5,13 @@ module Guidecase
         ::Diagnosis.new params
       end
 
-      def diagnose(key, common_name_or_weight=nil, weight=nil, &block)
-        common_name = common_name_or_weight.is_a?(String) ? common_name_or_weight : key
-        weight = if common_name_or_weight && (Float(common_name_or_weight) != nil rescue false)
-          Float(common_name_or_weight) 
-        else 
-          weight
-        end
+      def diagnose(key, common_name=nil, &block)
+        diagnosis = new_diagnosis(:_id => key, :name => common_name || key)
+        self.receiver.diagnoses << diagnosis
+        self.receiver = diagnosis
+        yield self if block_given?
+        self.receiver = self
+      end
 
         diagnosis = new_diagnosis(:_id => key, :name => common_name, :weight => weight)
         self.receiver.diagnoses << diagnosis
