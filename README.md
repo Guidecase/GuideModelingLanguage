@@ -497,6 +497,17 @@ The DSL comprises a number of commands used to describe medical guides. These gu
           description :info_about_illness  
         end 
 
++ **disease**
+
+  BLOCK: no  
+  PARAMETERS: disease key  
+  NOTES: The diagnosis `disease key` is used to match the diagnosis with a disease page the triage UI; e.g. if the page name is `illness.html` then the disease key should translate to the text `illness`.  
+  EXAMPLE:  
+
+        diagnose :some_illness do  
+          disease :illness  
+        end 
+
 + **risk**
 
   BLOCK: no  
