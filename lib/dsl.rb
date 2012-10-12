@@ -3,7 +3,6 @@ module Guidecase
     attr_accessor :receiver
 
     include Guidecase::DSL::GuideMethods
-    include Guidecase::DSL::AgreementMethods   
     include Guidecase::DSL::IndicatorMethods    
     include Guidecase::DSL::OutcomeMethods
     include Guidecase::DSL::DiagnosisMethods

@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name         = "guide_modeling_language"
-  s.version      = '0.6.4'
+  s.version      = '0.7.0'
   s.platform     = Gem::Platform::RUBY  
-  s.description  = "Zorgblik Guide Modeling Language"
+  s.description  = "Earlydoc Guide Modeling Language"
   s.summary      = "Medical guide DSL models and modeling methods; assumes MongoMapper gem"
   s.author       = 'Earlydoc'
   s.email        = 'developer@earlydoc.com'

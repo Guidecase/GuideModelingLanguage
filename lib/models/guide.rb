@@ -7,7 +7,6 @@ class Guide
   key :version, String
   key :summary, String
   
-  one  :agreement
   one  :anatomy
   many :groups
   many :outcomes

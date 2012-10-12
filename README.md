@@ -69,9 +69,6 @@ The DSL comprises a number of commands used to describe medical guides. These gu
   given  
   recommend  
   indicator  
-* **Agreement**  
-  agree  
-  confirm  
 * **Questions**  
   group  
   question  
@@ -316,31 +313,6 @@ The DSL comprises a number of commands used to describe medical guides. These gu
           indicator :if_some_other_symptom  do
             given :an_answer
           end
-        end
-
-##### Agreement
-
-+ **agree**
-
-  BLOCK: yes  
-  PARAMETERS: agreement key
-  NOTES: An agreement is the legal disclaimer displayed in the `agreement key`` text to the user in the triage UI.  
-  EXAMPLE:
-
-        agree :i_agree_to_terms  
-          ...  
-        end  
-
-+ **confirm**
-
-  BLOCK: no  
-  PARAMETERS: confirmation key  
-  NOTES: The `confirmation key` text is displayed to the user on the agreement labels in the triage UI. Multiple `confirm` statements can be used to represent several EULAs the user must accept.
-  EXAMPLE:
-
-        agree :i_agree_to_terms  
-          confirm :i_confirm_this  
-          confirm :i_confirm_that  
         end
 
 ##### Questions
