@@ -13,10 +13,11 @@ module Guidecase
         self.receiver = self
       end
       
-      def symptom(key, weight=1)
-        s = Symptom.new(:weight => weight)
-        s._id = key
-        s.weight = weight
+      def symptom(*args)
+        s = Symptom.new(:weight => 1)
+        s.weight = args.pop if args.last.is_a?(Float) || args.last.is_a?(Fixnum)
+        s._id = args.join('_')
+        s.answers = args
         self.receiver.symptoms << s
       end
       

@@ -77,6 +77,7 @@ The DSL comprises a number of commands used to describe medical guides. These gu
   explanation  
   warning  
   given
+
 * **Answers**  
   answer  
   illustration  
@@ -223,7 +224,7 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 
   BLOCK: no  
   PARAMETERS: warning key  
-  NOTES: The `warning key` test is displayed to the user in the triage UI.  
+  NOTES: The `warning key` text is displayed to the user in the triage UI.  
   EXAMPLE:
 
         outcome :see_a_doctor_later do  
@@ -494,13 +495,13 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 + **symptom**
 
   BLOCK: no  
-  PARAMETERS: symptom key, weight (optional. default = 1)  
-  NOTES: The `symptom key` should match an `answer key` defined for an answer elsewhere in the guide. If a patient answers with any of the given symptoms, the diagnosis may be displayed in the triage UI. The more symptoms a user has in their answers, the more likely the triage UI will consider this diagnosis above others. Multiple `symptom` statements can and usually will be provided if several possible symptoms would indicate the diagnosis. The symptom's `weight` determines the influence of a given symptom relative to other weighted symptoms, such that a symptom with a high weight implies a diagnosis more than a symptom with a lower weight.  
+  PARAMETERS: symptom key(s), weight (optional. default = 1)  
+  NOTES: Each `symptom key` should match an `answer key` defined for an answer elsewhere in the guide. If a patient answers with any of the given symptoms, the diagnosis may be displayed in the triage UI. The more symptoms a user has in their answers, the more likely the triage UI will consider this diagnosis above others. Multiple `symptom` statements can and usually will be provided if several possible symptoms would indicate the diagnosis. Multiple answer keys can be provided for individual symptoms. The symptom's `weight` determines the influence of a given symptom relative to other weighted symptoms, such that a symptom with a high weight implies a diagnosis more than a symptom with a lower weight.  
   EXAMPLE:
 
         diagnose :some_illness do  
           symptom :one_possible_symptom  
-          symptom :another_possible_symptom  
+          symptom :a_dependent_symptom, :the_other_dependent_symptom, 1.5
           symptom :unimportant_symptom, 0.25
         end  
 
