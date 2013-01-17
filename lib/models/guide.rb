@@ -6,6 +6,7 @@ class Guide
   key :image, String
   key :version, String
   key :summary, String
+  key :weight_threshold, String, :default => 0
   
   one  :anatomy
   many :groups

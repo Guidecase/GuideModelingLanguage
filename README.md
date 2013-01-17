@@ -496,7 +496,7 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 
   BLOCK: no  
   PARAMETERS: symptom key(s), weight (optional. default = 1)  
-  NOTES: Each `symptom key` should match an `answer key` defined for an answer elsewhere in the guide. If a patient answers with any of the given symptoms, the diagnosis may be displayed in the triage UI. The more symptoms a user has in their answers, the more likely the triage UI will consider this diagnosis above others. Multiple `symptom` statements can and usually will be provided if several possible symptoms would indicate the diagnosis. Multiple answer keys can be provided for individual symptoms. The symptom's `weight` determines the influence of a given symptom relative to other weighted symptoms, such that a symptom with a high weight implies a diagnosis more than a symptom with a lower weight.  
+  NOTES: Each `symptom key` should match an `answer key` defined for an answer elsewhere in the guide. If a patient answers with any of the given symptoms, the diagnosis may be displayed in the triage UI. The more symptoms a user has in their answers, the more likely the triage UI will consider this diagnosis above others. Multiple `symptom` statements can and usually will be provided if several possible symptoms would indicate the diagnosis. Multiple answer keys can be provided for individual symptoms. The symptom's `weight` determines the influence of a given symptom relative to other weighted symptoms, such that a symptom with a high weight implies a diagnosis more than a symptom with a lower weight. In order to be included in the results, a diagnosis must have a total weight (risk + sum of symptom weights) of 1 or greater.
   EXAMPLE:
 
         diagnose :some_illness do  

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name         = "guide_modeling_language"
-  s.version      = '0.8.0'
+  s.version      = '0.8.1'
   s.platform     = Gem::Platform::RUBY  
   s.description  = "Earlydoc Guide Modeling Language"
   s.summary      = "Medical guide DSL models and modeling methods; assumes MongoMapper gem"
