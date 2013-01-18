@@ -35,7 +35,7 @@ Keys serve several purposes, the first and foremost being a way to easily refer 
 
 The text referred to by keys will also be translated to other languages, which is another reason to write the guides using keys instead of actual text as it would appear to a patient: it's necessary to abstract the text away from the guide formalization for localization purposes.
 
-Finally, keys are often used within guide logic as a unique identifier for a piece of data, a fact about a patient, or general medical information. This greatly simplifies the data structures which Zorgblik uses, enabling much of the data (e.g. a patient's triage answers) to be modeled as simple lists of keys. If the keys are named in a descriptive way, their meaning should be evident even when viewed out of context.
+Finally, keys are often used within guide logic as a unique identifier for a piece of data, a fact about a patient, or general medical information. This greatly simplifies the data structures which Earlydoc uses, enabling much of the data (e.g. a patient's triage answers) to be modeled as simple lists of keys. If the keys are named in a descriptive way, their meaning should be evident even when viewed out of context.
 
 ### Ordering
 
@@ -54,6 +54,7 @@ The DSL comprises a number of commands used to describe medical guides. These gu
   version_number  
   illustration  
   description  
+  ignore_diagnoses_weighted_below
 * **Complaints**  
   complaint  
   illustration  
@@ -145,7 +146,18 @@ The DSL comprises a number of commands used to describe medical guides. These gu
 
         define :my_guide do  
           body :how_does_your_body_work, :how_body_works_explanation, :anatomy_image_png  
-        end        
+        end    
+
++ **ignore_diagnoses_weighted_below**
+
+  BLOCK: no
+  PARAMETERS: diagnosis weight threshold
+  NOTES: The `ignore_diagnoses_weighted_below` command sets the minimum necessary weight for a guide's diagnosis to be considered in a triage. The combined value of the diagnosis `risk` and sum symptoms `weight` gives a total weight to each diagnosis, and if this value falls below the `diagnosis weight threshold` then the diagnosis is excluded from the triage as too unlikely for consideration.
+  EXAMPLE:
+
+        define :my_guide do  
+          ignore_diagnoses_weighted_below 5
+        end  
 
 ##### Complaints
 
