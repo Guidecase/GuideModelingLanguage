@@ -14,6 +14,24 @@ class Guide
   many :diagnoses
   many :complaints
 
+  cattr_accessor :questions
+  class << self
+    def load_question_lookups
+      return questions unless questions.blank?
+      
+      q = File.read("#{Guidecase::Guides.root}/questions.rb")
+      guide = Guide.new
+      guide.group :common
+      guide.receiver = guide.groups.first
+      guide.instance_eval(q)
+      self.questions = guide.groups.first.questions
+    end
+    
+    def lookup_question(key)
+      questions.select{ |q| q._id == key}.first
+    end
+  end  
+
   def format_id
     self._id = _id.to_s.gsub(' ', '_').downcase if _id
   end

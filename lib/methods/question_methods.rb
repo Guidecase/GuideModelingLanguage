@@ -5,14 +5,18 @@ module Guidecase
         ::Question.new params
       end
 
-      def question(key, reply_type, &block)
-        question = new_question _id = :_id => key, :reply => reply_type
-        
-        receiver.questions << question
-        group = receiver
-        self.receiver = question
-        yield self if block_given?
-        self.receiver = group
+      def question(key, reply_type=nil, &block)
+        if block_given?
+          question = new_question(:_id => key, :reply => reply_type)
+          receiver.questions << question
+          group = receiver
+          self.receiver = question
+          yield self if block_given?
+          self.receiver = group
+        else
+          question = Guide.lookup_question(key)
+          receiver.questions << question
+        end
       end
       
       def required
