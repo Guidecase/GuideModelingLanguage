@@ -24,10 +24,11 @@ class Guide
       guide.group :common
       guide.receiver = guide.groups.first
       guide.instance_eval(q)
-      self.questions = guide.groups.first.questions
+      self.questions = guide.groups.first.questions || []
     end
     
     def lookup_question(key)
+      load_question_lookups if questions.nil?
       questions.select{ |q| q._id == key}.first
     end
   end  
