@@ -14,8 +14,11 @@ module Guidecase
           yield self if block_given?
           self.receiver = group
         else
-          question = Guide.lookup_question(key)
-          receiver.questions << question
+          if question = Guide.lookup_question(key)
+            receiver.questions << question
+          else
+            # error! tried to reference question key that was not defined in lookups
+          end
         end
       end
       
